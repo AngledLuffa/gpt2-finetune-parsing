@@ -1,4 +1,5 @@
 
+import os
 from transformers import GPT2Tokenizer
 #get pretrained tokenizer
 from transformers import AutoTokenizer
@@ -130,6 +131,7 @@ def main():
                         help='saves the current model at path')
     args = parser.parse_args()
 
+    os.makedirs("saved_model", exist_ok=True)
     if args.train:
         log_file = open("saved_model/" + "logging_" + args.save_model + "_" + args.model_name + '.pt', 'w')
         log_file.write("hello world!")
